@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-import 'ui/onboarding_screen.dart';
-
+import 'ui/splash_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Onboarding Screen',
+      title: 'AirQ',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: OnboardingScreen(),
-      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
     );
   }
 }
