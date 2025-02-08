@@ -1,3 +1,4 @@
+import 'package:air_q/constants.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login Screen'),
-        backgroundColor: Colors.white,
+        backgroundColor: Constants.primaryColor,
       ),
     );
   }

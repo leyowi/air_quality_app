@@ -12,9 +12,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'AirQ',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: SplashScreen(),
     );
   }

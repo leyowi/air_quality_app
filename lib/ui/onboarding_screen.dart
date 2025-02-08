@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
+import 'package:air_q/constants.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -32,7 +33,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
               child: const Text(
                 'Skip',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.grey,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w400,
                 ),
@@ -51,10 +52,27 @@ class OnboardingScreenState extends State<OnboardingScreen> {
               });
             },
             controller: _pageController,
+            children: [
+              createPage(
+                image: 'assets/images/onboarding1.png', // 1st page image
+                title: Constants.titleOne, // 1st page title
+                description: Constants.descriptionOne, // 1st page description
+              ),
+              createPage(
+                image: 'assets/images/onboarding2.png', // 2nd page image
+                title: Constants.titleTwo, // 2nd page title
+                description: Constants.descriptionTwo, // 2nd page description
+              ),
+              createPage(
+                image: 'assets/images/onboarding3.png', // 3rd page image
+                title: Constants.titleThree, // 3rd page title
+                description: Constants.descriptionThree, // 3rd page description
+              ),
+            ],
           ),
           Positioned(
             bottom: 80,
-            left: 20,
+            left: 30,
             child: Row(
               children: _buildIndicator(),
             ),
@@ -66,31 +84,24 @@ class OnboardingScreenState extends State<OnboardingScreen> {
               padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color.fromARGB(255, 63, 112, 251),
+                color: Constants.primaryColor
               ),
               child: IconButton(
                 onPressed: () {
                   setState(() {
                     if (currentIndex < 2) {
                       currentIndex++;
-                      _pageController.nextPage(
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeIn,
-                      );
+                      if(currentIndex < 3) {
+                        _pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+                      }
                     } else {
                       Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const LoginScreen()),
+                        context, MaterialPageRoute(builder: (context) => const LoginScreen()),
                       );
                     }
                   });
                 },
-                icon: const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 24,
-                  color: Color.fromARGB(255, 63, 112, 251),
-                ),
-              ),
+                icon: const Icon(Icons.arrow_forward_ios, size: 24, color: Colors.white,)),
             ),
           ),
         ],
@@ -108,7 +119,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
       height: 10.0,
       width: isActive ? 20 : 8,
       decoration: BoxDecoration(
-        color: isActive ? Colors.white : Color.fromARGB(255, 63, 112, 251),
+        color: Constants.primaryColor,
         borderRadius: BorderRadius.circular(5),
       ),
     );
@@ -117,7 +128,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
   // create the indicator list
   List<Widget> _buildIndicator() {
     List<Widget> indicators = [];
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < 3; i++) {
       if (currentIndex == i) {
         indicators.add(_indicator(true));
       } else {
@@ -129,11 +140,12 @@ class OnboardingScreenState extends State<OnboardingScreen> {
 }
 
 class createPage extends StatelessWidget {
+  final String title;
+  final String description;
   final String image;
 
   const createPage({
-    Key? key,
-    required this.image,
+    Key? key, required this.title, required this.description, required this.image,
   }) : super(key: key);
 
   @override
@@ -144,8 +156,26 @@ class createPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: 150,
+            height: 250,
             child: Image.asset(image),
+          ),
+          const SizedBox(height: 20),
+          Text(title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Constants.primaryColor,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+          ),
+          const SizedBox(height: 20),
+          Text(description,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.grey,
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+              ),
           ),
         ],
       ),
