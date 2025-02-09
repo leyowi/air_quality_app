@@ -54,17 +54,17 @@ class OnboardingScreenState extends State<OnboardingScreen> {
             controller: _pageController,
             children: [
               createPage(
-                image: 'assets/images/onboarding1.png', // 1st page image
+                image: 'assets/onboarding1.png', // 1st page image
                 title: Constants.titleOne, // 1st page title
                 description: Constants.descriptionOne, // 1st page description
               ),
               createPage(
-                image: 'assets/images/onboarding2.png', // 2nd page image
+                image: 'assets/onboarding2.png', // 2nd page image
                 title: Constants.titleTwo, // 2nd page title
                 description: Constants.descriptionTwo, // 2nd page description
               ),
               createPage(
-                image: 'assets/images/onboarding3.png', // 3rd page image
+                image: 'assets/onboarding3.png', // 3rd page image
                 title: Constants.titleThree, // 3rd page title
                 description: Constants.descriptionThree, // 3rd page description
               ),
