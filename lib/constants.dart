@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Constants {
   // Primary color
   static var primaryColor = const Color.fromARGB(255, 63, 112, 251);
+  static var blackColor = Colors.black54;
 
   // Onboarding Texts
   static var titleOne = "Welcome to the Air Q App"; // 1st page title

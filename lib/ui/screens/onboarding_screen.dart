@@ -1,5 +1,5 @@
+import 'package:air_q/ui/screens/signin_page.dart';
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
 import 'package:air_q/constants.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -27,7 +27,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  MaterialPageRoute(builder: (context) => const SignInPage()),
                 );
               },
               child: const Text(
@@ -96,7 +96,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                       }
                     } else {
                       Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (context) => const LoginScreen()),
+                        context, MaterialPageRoute(builder: (context) => const SignInPage()),
                       );
                     }
                   });

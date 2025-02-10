@@ -29,8 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Color.fromARGB(255, 63, 112, 251),
       body: Center(
         child: SizedBox(
-          height: 150,
-          width: 150, // Add width to resize the logo
+          height: 100,
+          width: 100, // Add width to resize the logo
           child: Image.asset(
             'assets/BLUE LOGO.png',
             fit: BoxFit.contain, // Ensure the image fits within the specified dimensions
