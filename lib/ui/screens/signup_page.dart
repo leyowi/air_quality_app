@@ -165,38 +165,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               const SizedBox(height: 10),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    PageTransition(
-                      type: PageTransitionType.bottomToTop,
-                      child: const ForgotPasswordPage(),
-                    ),
-                  );
-                },
-                child: Center(
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'Forgot Password? ',
-                          style: TextStyle(
-                            color: Constants.blackColor,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Click here',
-                          style: TextStyle(
-                            color: Constants.primaryColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
               const Row(
                 children: [
                   Expanded(child: Divider()),
