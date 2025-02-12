@@ -53,17 +53,17 @@ class OnboardingScreenState extends State<OnboardingScreen> {
             },
             controller: _pageController,
             children: [
-              createPage(
+              CreatePage(
                 image: 'assets/onboarding1.png', // 1st page image
                 title: Constants.titleOne, // 1st page title
                 description: Constants.descriptionOne, // 1st page description
               ),
-              createPage(
+              CreatePage(
                 image: 'assets/onboarding2.png', // 2nd page image
                 title: Constants.titleTwo, // 2nd page title
                 description: Constants.descriptionTwo, // 2nd page description
               ),
-              createPage(
+              CreatePage(
                 image: 'assets/onboarding3.png', // 3rd page image
                 title: Constants.titleThree, // 3rd page title
                 description: Constants.descriptionThree, // 3rd page description
@@ -114,7 +114,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
   // create the indicator decoration widget
   Widget _indicator(bool isActive) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       margin: const EdgeInsets.only(right: 5.0),
       height: 10.0,
       width: isActive ? 20 : 8,
@@ -139,12 +139,12 @@ class OnboardingScreenState extends State<OnboardingScreen> {
   }
 }
 
-class createPage extends StatelessWidget {
+class CreatePage extends StatelessWidget {
   final String title;
   final String description;
   final String image;
 
-  const createPage({
+  const CreatePage({
     Key? key, required this.title, required this.description, required this.image,
   }) : super(key: key);
 

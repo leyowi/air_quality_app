@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:air_q/constants.dart';
-import 'package:air_q/ui/screens/customfieldtext.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:air_q/ui/screens/root_page.dart';
-import 'package:air_q/ui/screens/forgotpass_page.dart';
+import 'package:air_q/ui/screens/forgot_password.dart';
+import 'package:air_q/ui/screens/signup_page.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
+
+  @override
+  _SignInPageState createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  bool _obscureText = true;
+
+  void _togglePasswordVisibility() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +36,73 @@ class SignInPage extends StatelessWidget {
               'Sign In',
               style: TextStyle(fontSize: 35, fontWeight: FontWeight.w700),
             ),
-            const SizedBox(height: 30),
-            const CustomFieldText(
-              icon: Icons.alternate_email,
-              obscureText: false,
-              hintText: 'Enter Email',
+            const SizedBox(height: 15),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Enter Email',
+                hintStyle: const TextStyle(
+                    color: Colors.grey), // Set hint text color to grey
+                prefixIcon: const Icon(Icons.alternate_email,
+                    color: Colors.grey), // Set icon color to grey
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: const BorderSide(
+                    color: Colors.grey,
+                    width: 2,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: const BorderSide(
+                    color: Colors.grey,
+                    width: 2,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Constants.primaryColor,
+                    width: 2,
+                  ),
+                ),
+              ),
             ),
-            const CustomFieldText(
-              icon: Icons.lock,
-              obscureText: true,
-              hintText: 'Enter Password',
+            const SizedBox(height: 15),
+            TextField(
+              obscureText: _obscureText,
+              decoration: InputDecoration(
+                hintText: 'Enter Password',
+                hintStyle: const TextStyle(color: Colors.grey),
+                prefixIcon: const Icon(Icons.lock, color: Colors.grey),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _obscureText ? Icons.visibility_off : Icons.visibility,
+                    color: Colors.grey,
+                  ),
+                  onPressed: _togglePasswordVisibility,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: const BorderSide(
+                    color: Colors.grey,
+                    width: 2,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: const BorderSide(
+                    color: Colors.grey,
+                    width: 2,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Constants.primaryColor,
+                    width: 2,
+                  ),
+                ),
+              ),
             ),
             const SizedBox(height: 10),
             GestureDetector(
@@ -97,7 +167,7 @@ class SignInPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Row(
+            const Row(
               children: [
                 Expanded(child: Divider()),
                 Padding(
@@ -131,6 +201,38 @@ class SignInPage extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.bottomToTop,
+                    child: const SignUpPage(),
+                  ),
+                );
+              },
+              child: Center(
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'New to AirQ App? ',
+                        style: TextStyle(
+                          color: Constants.blackColor,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'Sign Up here',
+                        style: TextStyle(
+                          color: Constants.primaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],
