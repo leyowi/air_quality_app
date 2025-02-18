@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:air_q/constants.dart';
 import 'package:air_q/ui/screens/signin_page.dart';
+import 'package:page_transition/page_transition.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});
@@ -115,8 +116,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignInPage()),
+                      PageTransition(
+                      type: PageTransitionType.bottomToTop,
+                      child: const SignInPage(),
+                    ),
                     );
                   },
                   child: Center(

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:air_q/constants.dart';
 import 'package:air_q/ui/screens/root_page.dart';
-import 'package:air_q/ui/screens/forgot_password.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
